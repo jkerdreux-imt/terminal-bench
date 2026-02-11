@@ -44,13 +44,6 @@ Stop early with `Ctrl+C` to see results immediately.
 Real benchmark on Intel i5 with Kitty terminal (default config):
 
 ```
-Terminal: 196 columns
-Starting 10s benchmark... (Ctrl+C to stop early)
-
-Current: 43,174,899 chars/s | Total: 431,748,996 chars | Avg: 43,154,400 chars/s
-
-Test duration reached...
-
 ========================================
 Final Results:
 ========================================
