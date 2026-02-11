@@ -42,23 +42,23 @@ Stop early with `Ctrl+C` to see results immediately.
 ### Example Output
 
 ```
-Terminal: 120 columns
+Terminal: 196 columns
 Starting 10s benchmark... (Ctrl+C to stop early)
 
-Current: 45,234,567 chars/s | Total: 453,456,789 chars | Avg: 45,345,678 chars/s
+Current: 43,174,899 chars/s | Total: 431,748,996 chars | Avg: 43,154,400 chars/s
 
 Test duration reached...
 
 ========================================
 Final Results:
 ========================================
-Hostname:     myhost
-Terminal:     120x30
+Hostname:     i5
+Terminal:     196x57
 Duration:     10.00 seconds
-Total chars:  453,456,789 (0.45 GChars)
-Total bytes:  512,345,678 (488.56 MB)
-Throughput:   45,345,678 chars/sec
-Throughput:   48.86 MB/s
+Total chars:  431,748,996 (0.43 GChars)
+Total bytes:  745,547,127 (711.01 MB)
+Throughput:   43,154,400 chars/sec
+Throughput:   71.07 MB/s
 ========================================
 ```
 
