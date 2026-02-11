@@ -129,14 +129,6 @@ You can modify these constants in `main.go`:
 - Final results formatted with thousand separators for readability
 - Blue-colored summary for visibility
 
-## Use Cases
-
-- **Compare terminal emulators**: Which is fastest on your system?
-- **Test font rendering**: Does font size affect performance?
-- **Benchmark hardware**: How does your GPU/CPU handle terminal output?
-- **CI/CD testing**: Measure terminal performance in automated environments
-- **Educational**: Learn about terminal I/O optimization
-
 ## Contributing
 
 Contributions are welcome! Feel free to:
