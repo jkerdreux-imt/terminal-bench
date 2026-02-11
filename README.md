@@ -11,7 +11,6 @@ This tool measures how many characters per second your terminal emulator can han
 - **High-throughput output**: Uses buffered I/O (256KB buffer) to maximize write performance
 - **Pre-generated line pool**: 100 random lines cached to minimize CPU overhead during the benchmark
 - **ANSI colors**: Random color injection to stress-test terminal rendering
-- **Real-time metrics**: Live display of current and average throughput
 - **Comprehensive results**: Final report with hostname, terminal size, and performance statistics
 - **Graceful shutdown**: Stop early with Ctrl+C while preserving statistics
 
@@ -44,6 +43,11 @@ Stop early with `Ctrl+C` to see results immediately.
 Real benchmark on Intel i5 with Kitty terminal (default config):
 
 ```
+Terminal: 196 columns
+Starting 10s benchmark... (Ctrl+C to stop early)
+
+Test duration reached...
+
 ========================================
 Final Results:
 ========================================
@@ -90,7 +94,6 @@ You can modify these constants in `main.go`:
 - `testDuration`: Benchmark duration (default: 10 seconds)
 - `linePoolSize`: Number of pre-generated lines (default: 100)
 - `bufferSize`: Write buffer size (default: 256 KB)
-- `reportInterval`: Metrics update frequency (default: 1 second)
 
 ## Performance Tips
 
@@ -122,7 +125,6 @@ You can modify these constants in `main.go`:
 
 ### Output Format
 
-- Progress metrics displayed on `stderr` (real-time updates)
 - Benchmark text output on `stdout` (can be redirected)
 - Final results formatted with thousand separators for readability
 - Blue-colored summary for visibility

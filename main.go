@@ -18,8 +18,6 @@ import (
 const (
 	// Number of pre-generated lines in the pool
 	linePoolSize = 100
-	// Metrics reporting interval
-	reportInterval = 1 * time.Second
 	// Write buffer size (256 KB)
 	bufferSize = 256 * 1024
 	// Test duration
@@ -56,10 +54,7 @@ func main() {
 		linePool[i], lineCharCounts[i] = generateRandomLine(width)
 	}
 
-	// Start metrics reporting goroutine
-	stopMetrics := make(chan bool)
 	startTime := time.Now()
-	go reportMetrics(stopMetrics)
 
 	// Handle interrupt signal (Ctrl+C)
 	sigChan := make(chan os.Signal, 1)
@@ -106,7 +101,6 @@ func main() {
 	}
 
 	close(done)
-	close(stopMetrics)
 	writer.Flush()
 
 	// Display final results
@@ -172,33 +166,6 @@ func generateRandomLine(width int) ([]byte, int) {
 	line = append(line, []byte(reset)...)
 	line = append(line, '\n')
 	return line, width
-}
-
-// reportMetrics displays real-time performance statistics on stderr
-func reportMetrics(stop chan bool) {
-	ticker := time.NewTicker(reportInterval)
-	defer ticker.Stop()
-
-	var lastChars uint64
-	startTime := time.Now()
-
-	for {
-		select {
-		case <-stop:
-			return
-		case <-ticker.C:
-			currentChars := atomic.LoadUint64(&totalChars)
-			deltaChars := currentChars - lastChars
-			lastChars = currentChars
-
-			elapsed := time.Since(startTime).Seconds()
-			avgCharsPerSec := float64(currentChars) / elapsed
-
-			// Display metrics
-			fmt.Fprintf(os.Stderr, "\rCurrent: %s chars/s | Total: %s chars | Avg: %s chars/s   ",
-				formatNumber(deltaChars), formatNumber(currentChars), formatNumber(uint64(avgCharsPerSec)))
-		}
-	}
 }
 
 // formatNumber formats a number with thousands separators
