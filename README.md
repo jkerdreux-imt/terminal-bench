@@ -41,6 +41,8 @@ Stop early with `Ctrl+C` to see results immediately.
 
 ### Example Output
 
+Real benchmark on Intel i5 with Kitty terminal (default config):
+
 ```
 Terminal: 196 columns
 Starting 10s benchmark... (Ctrl+C to stop early)
@@ -61,6 +63,22 @@ Throughput:   43,154,400 chars/sec
 Throughput:   71.07 MB/s
 ========================================
 ```
+
+## Benchmark Results
+
+Comparative results on Intel i5-13500 (integrated GPU) running Wayland:
+
+| Terminal | Size | Throughput | Performance |
+|----------|------|------------|-------------|
+| **Foot** | 177x55 | **113.95M chars/sec** (187.60 MB/s) | 🏆 **Winner** - Wayland-native, 2.6x faster than Kitty |
+| **Alacritty** | 161x53 | 65.06M chars/sec (106.36 MB/s) | GPU-accelerated, 1.5x faster than Kitty |
+| **Kitty** | 196x57 | 43.15M chars/sec (71.07 MB/s) | Default config |
+
+**Key observations**: 
+- **Foot** dominates on Wayland with incredible performance (almost 2x faster than Alacritty!)
+- Wayland-native terminals may have an advantage on Wayland systems
+- Different window sizes may affect results, but the performance gap is significant
+- All tested terminals use GPU acceleration (integrated Intel GPU)
 
 ### Measuring Raw Performance
 
