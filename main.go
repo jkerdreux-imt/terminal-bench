@@ -136,6 +136,7 @@ func main() {
 	fmt.Fprintf(os.Stderr, "Throughput:   %s chars/sec\n", formatNumber(uint64(float64(finalChars)/elapsed)))
 	fmt.Fprintf(os.Stderr, "Throughput:   %.2f MB/s\n", float64(finalBytes)/elapsed/1024/1024)
 	fmt.Fprintf(os.Stderr, "========================================%s\n", resetColor)
+	time.Sleep(10 * time.Second)
 }
 
 // generateRandomLine creates a random line of the specified width with ANSI color codes
